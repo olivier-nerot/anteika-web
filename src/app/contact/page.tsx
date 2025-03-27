@@ -3,12 +3,43 @@ import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
+import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
 
 const Contact = async () => {
   const data: RegularPage = getListPage("contact/_index.md");
   const { frontmatter } = data;
   const { title, description, meta_title, image } = frontmatter;
-  const { contact_form_action } = config.params;
+
+
+// https://www.mailersend.com/
+function contact_form_action() {
+  if (!process.env.MAILERSEND_API_KEY) return;
+
+  const mailerSend = new MailerSend({
+    apiKey: process.env.MAILERSEND_API_KEY,
+  });
+  
+  const formData = new FormData(document.querySelector('form') as HTMLFormElement);
+  const name = formData.get('name') as string;
+  const email = formData.get('email') as string;
+  const message = formData.get('message') as string;
+
+  const sentFrom = new Sender(email, name);
+
+  const recipients = [
+    new Recipient("olivier@anteika.fr", "Olivier Nerot")
+  ];
+
+  const emailParams = new EmailParams()
+    .setFrom(sentFrom)
+    .setTo(recipients)
+    .setReplyTo(sentFrom)
+    .setSubject("ANteiKA.fr contact form")
+    .setHtml(`<strong>Name:</strong> ${name}<br/><strong>Email:</strong> ${email}<br/><strong>Message:</strong> ${message}`)
+    .setText(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+  
+   mailerSend.email.send(emailParams);
+}
 
   return (
     <>
