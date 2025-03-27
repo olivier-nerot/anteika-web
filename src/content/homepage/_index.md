@@ -1,9 +1,9 @@
 ---
 # Banner
 banner:
-  title: "The Ultimate Starter Template You Need To Start Your Next Project"
-  content: "Nextplate is a free starter template built with Next and TailwindCSS, providing everything you need to jumpstart your Next project and save valuable time."
-  image: "/images/banner.png"
+  title: "ANteiKA"
+  content: "Bottom Up Innovation : P2P / WEB3 / Blockchain / AI+ML"
+  image: "/images/logo-ntk.png"
   button:
     enable: true
     label: "Get Started For Free"
