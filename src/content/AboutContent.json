@@ -1,0 +1,16 @@
+{
+  "title": "WEB3: Blockchain, smart contracts, et applications décentralisées",
+  "text": "",
+  "section": [
+    {
+      "title": "SSI",
+      "content": "Self-Sovereign Identity (SSI) is a digital identity model that allows individuals to own and control their personal data.",
+      "icon": "notes.svg"
+    },
+    {
+      "title": "DID",
+      "content": "Decentralized Identifiers (DIDs) are a new type of identifier that enables verifiable, self-sovereign digital identities.",
+      "icon": "notes.svg"
+    }
+  ]
+}
