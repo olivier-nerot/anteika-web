@@ -50,22 +50,26 @@ const Footer = ({ t }: { t: TFunction }) => {
       <FooterSection>
         <Container>
           <Row justify="space-between">
-            <Col lg={8} md={8} sm={12} xs={12}>
+            <Col span={2} lg={8} md={8} sm={12} xs={12}>
               <Label>{t("Address")}</Label>
               <Para>AnteiKA SARL</Para>
               <Para>24 montée Saint Sébstien</Para>
               <Para>60002 LYON</Para>
             </Col>
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Label>{t("Contact")}</Label>
+            <Col span={10}>
+              <Label>{"No centralized server"}</Label>
               <Para>
-                {t(`Do you have any question? Feel free to reach out.`)}
+                {"This site is distributed by IPFS"}
               </Para>
-              <a href="mailto:contact@anteika.fr">
-                <Chat>{t(`Let's Chat`)}</Chat>
+              <a
+              href="https://bafybeihchdypipr7p3fm6hdek6lxmgig24s7xvv57z4ebmmc3uanmppvha.ipfs.dweb.link/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+              {"ipfs://bafybeihchdyp...4ebmmc3uanmppvha"}
               </a>
             </Col>
-            <Col lg={6} md={6} sm={12} xs={12}>
+            <Col span={2} lg={6} md={6} sm={12} xs={12}>
             <Label htmlFor="select-lang">{t("Language")}</Label>
               <LanguageSwitchContainer>
                 <LanguageSwitch onClick={() => handleChange("fr")}>
@@ -118,15 +122,6 @@ const Footer = ({ t }: { t: TFunction }) => {
                 src="youtube.svg"
               />
             </FooterContainer>
-          </Row>
-          <Row
-            justify="space-between"
-            align="middle"
-            style={{ paddingTop: "3rem" }}
-          >
-            <Col>
-              <p>{"Site distribué sur IPFS (Inter Planetory File System)"}</p>
-            </Col>
           </Row>
         </Container>
       </Extra>
